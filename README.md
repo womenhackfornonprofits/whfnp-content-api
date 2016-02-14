@@ -1,8 +1,19 @@
-# WHFNP Content API Reference
+# WHFNP Content API
 
-Content API for the WHFNP Website &amp; CMS
+Content API for the WHFNP Website &amp; CMS.
 
-## Admin Access / Auth
+## Setup
+
+1. Get Node/NPM from the [official website](https://nodejs.org)
+2. Install the [Gulp](http://gulpjs.com/) task runner
+3. Clone the repo: `git clone git@github.com:womenhackfornonprofits/whfnp-content-api`
+4. Enter the directory and install the dependencies: `cd whfnp-content-api && npm install`
+5. Run tests: `gulp test`
+6. Run the app: `gulp`
+
+---
+
+## API Reference
 
 ### Authentication
 
@@ -99,10 +110,6 @@ Returns a list of admin users.
 }
 
 ```
-
----
-
-## Content
 
 ### WHFNP
 
@@ -440,5 +447,3 @@ Returns a list of project content.
 }
 
 ```
-
-
