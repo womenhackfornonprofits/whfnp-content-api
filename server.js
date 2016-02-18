@@ -2,6 +2,7 @@
  * Get all our dependencies
  */
 var express = require('express'),
+    stormpath = require('express-stormpath'),
     bodyParser = require('body-parser'),
     morgan = require('morgan'),
     mongoose = require('mongoose'),
@@ -21,6 +22,9 @@ mongoose.connect(conf.database.url, function(err) {
   }
 });
 
+/**
+ * All the middlewares
+ */
 // use body parser to easily read requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -28,12 +32,24 @@ app.use(bodyParser.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
-// set up routes
+// use stormpath for users and authentication management
+app.use(stormpath.init(app, {
+  website: true,
+  debug: 'info, error'
+}));
+
+/**
+ * Routes setup
+ */
 require('./routes')(app);
 
 /**
  * Start the server
  */
-if(!module.parent){ app.listen(port); } // wrapper to prevent EADDRESSINUSE conflict with tests
+if(!module.parent){ // wrapper to prevent EADDRESSINUSE conflict with tests
+  app.on('stormpath.ready', function() {
+    app.listen(port);
+  });
+}
 console.log('Find all the things at ' + conf.url);
 module.exports = app;

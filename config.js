@@ -9,6 +9,10 @@ var settings = {
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content-dev'
+    },
+    'stormpath': {
+      'key_id': process.env.STORMPATH_CLIENT_APIKEY_ID,
+      'key_secret': process.env.STORMPATH_CLIENT_APIKEY_SECRET
     }
   },
   'test': {
@@ -18,6 +22,10 @@ var settings = {
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content-test'
+    },
+    'stormpath': {
+      'key_id': process.env.STORMPATH_CLIENT_APIKEY_ID,
+      'key_secret': process.env.STORMPATH_CLIENT_APIKEY_SECRET
     }
   },
   'production': {
@@ -27,6 +35,10 @@ var settings = {
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content'
+    },
+    'stormpath': {
+      'key_id': process.env.STORMPATH_CLIENT_APIKEY_ID,
+      'key_secret': process.env.STORMPATH_CLIENT_APIKEY_SECRET
     }
   }
 }
