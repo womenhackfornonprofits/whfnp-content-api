@@ -34,6 +34,6 @@ require('./routes')(app);
 /**
  * Start the server
  */
-app.listen(port);
+if(!module.parent){ app.listen(port); } // wrapper to prevent EADDRESSINUSE conflict with tests
 console.log('Find all the things at ' + conf.url);
 module.exports = app;

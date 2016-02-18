@@ -5,8 +5,7 @@ var settings = {
   'development': {
     'server': {
       'port': process.env.PORT || 8080,
-      'host': 'http://localhost',
-      'apiPath': '/api'
+      'host': 'http://localhost'
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content-dev'
@@ -14,9 +13,8 @@ var settings = {
   },
   'test': {
     'server': {
-      'port': process.env.PORT || 8080,
-      'host': 'http://localhost',
-      'apiPath': '/api'
+      'port': process.env.PORT || 3000,
+      'host': 'http://localhost'
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content-test'
@@ -25,8 +23,7 @@ var settings = {
   'production': {
     'server': {
       'port': process.env.PORT || 8080,
-      'host': 'http://localhost',
-      'apiPath': '/api'
+      'host': 'http://localhost'
     },
     'database': {
       'url': 'mongodb://localhost/whfnp-content'
@@ -40,6 +37,5 @@ var settings = {
 var node_env = process.env.NODE_ENV || 'development';
 var conf = settings[node_env];
 conf.url = conf.server.host + ':' + conf.server.port;
-conf.apiURL = conf.url + conf.server.apiPath;
 
 module.exports = conf;

@@ -10,5 +10,5 @@ module.exports = function(app, port) {
     res.json({ success: true, message: "Hai, I'm the API."});
   });
 
-  app.use(conf.server.apiPath, router);
+  app.use(router);
 }

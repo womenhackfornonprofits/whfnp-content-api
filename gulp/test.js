@@ -1,7 +1,10 @@
 'use strict';
 
 var gulp = require('gulp'),
-    jasmineNode = require('gulp-jasmine-node');
+    mocha = require('gulp-mocha'),
+    shared = require('./shared');
+
+var watching = false;
 
 /**
  * Set the env
@@ -10,14 +13,36 @@ gulp.task('env:test', function() {
   process.env.NODE_ENV = 'test';
 });
 
+
+function onError(err) {
+  console.log(err.toString());
+  if (watching) {
+    this.emit('end');
+  } else {
+    // for CI's sake
+    process.exit(1);
+  }
+}
+
+
 /**
- * Run Jasmine tests
+ * Run mocha tests
  */
-gulp.task('runJasmine', ['env:test'], function() {
-  return gulp.src(['test/*spec.js'])
-    .pipe(jasmineNode({
-      timeout: 10000
-    }));
+gulp.task('mocha', function() {
+  return gulp.src(['test/*.js'])
+    .pipe(mocha({ reporter: 'nyan' }).on("error", onError));
 });
 
-gulp.task('test', ['runJasmine']);
+/**
+ * Run mocha task whenever the specified files change
+ */
+gulp.task('watch', function() {
+  watching = true;
+  gulp.watch(
+    ['*.js', 'test/*.js'],
+    ['mocha']
+  );
+});
+
+gulp.task('test', ['env:test','serve', 'mocha', 'watch']);
+
