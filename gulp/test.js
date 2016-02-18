@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
+    exit = require('gulp-exit'),
     shared = require('./shared');
 
 var watching = false;
@@ -30,7 +31,8 @@ function onError(err) {
  */
 gulp.task('mocha', function() {
   return gulp.src(['test/*.js'])
-    .pipe(mocha({ reporter: 'nyan' }).on("error", onError));
+    .pipe(mocha({ reporter: 'nyan' }).on("error", onError))
+    .pipe(exit());
 });
 
 /**
@@ -44,5 +46,5 @@ gulp.task('watch', function() {
   );
 });
 
-gulp.task('test', ['env:test','serve', 'mocha', 'watch']);
+gulp.task('test', ['env:test','serve', 'mocha']);
 
