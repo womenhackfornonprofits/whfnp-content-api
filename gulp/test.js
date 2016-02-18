@@ -35,16 +35,5 @@ gulp.task('mocha', function() {
     .pipe(exit());
 });
 
-/**
- * Run mocha task whenever the specified files change
- */
-gulp.task('watch', function() {
-  watching = true;
-  gulp.watch(
-    ['*.js', 'test/*.js'],
-    ['mocha']
-  );
-});
-
 gulp.task('test', ['env:test','serve', 'mocha']);
 

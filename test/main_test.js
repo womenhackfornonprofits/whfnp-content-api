@@ -18,13 +18,3 @@ describe('API root', function() {
       });
   });
 });
-
-describe('Testing CI with a failure', function() {
-  it('should fail', function(done) {
-    request.get('/i-dont-exist')
-      .expect(200)
-      .end(function(err, res) {
-        done(err);
-      });
-  });
-});
