@@ -22,6 +22,9 @@ mongoose.connect(conf.database.url, function(err) {
   }
 });
 
+app.set('views', './views');
+app.set('view engine', 'jade');
+
 /**
  * All the middlewares
  */
@@ -34,14 +37,30 @@ app.use(morgan('dev'));
 
 // use stormpath for users and authentication management
 app.use(stormpath.init(app, {
-  website: true,
-  debug: 'info, error'
+  debug: 'info, error',
+  expand: {
+    customData: true
+  },
+  web: {
+    register: {
+      enabled: false
+    },
+    login: {
+      enabled: true
+    },
+    logout: {
+      enabled: true
+    },
+    me: {
+      enabled: true
+    },
+  }
 }));
 
 /**
  * Routes setup
  */
-require('./routes')(app);
+require('./routes')(app, stormpath);
 
 /**
  * Start the server
@@ -51,5 +70,6 @@ if(!module.parent){ // wrapper to prevent EADDRESSINUSE conflict with tests
     app.listen(port);
   });
 }
+
 console.log('Find all the things at ' + conf.url);
 module.exports = app;
