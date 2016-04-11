@@ -2,7 +2,11 @@
 
 # WHFNP Content API
 
-Content API for the WHFNP Website &amp; CMS.
+Content API and CMS for Women Hack for Non-Profits.
+
+API home and documentation: {your URL}
+CMS home: {your URL}/admin
+Current API version root: {your URL}/api/v1
 
 ## Setup
 
