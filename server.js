@@ -53,7 +53,7 @@ app.use(stormpath.init(app, {
     },
     me: {
       enabled: true
-    },
+    }
   }
 }));
 
