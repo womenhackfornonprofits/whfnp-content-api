@@ -18,6 +18,7 @@ NB: User signup has been disabled for accounts to be created directly in Stormpa
 4. Enter the directory and install the dependencies: `cd whfnp-content-api && npm install`
 5. Run tests: `gulp test`
 6. Run the app: `gulp`
+7. We use the `stormpath-express` package for user management. Follow instructions to set yourself up locally using this [Stormpath Express Quickstart](http://docs.stormpath.com/express/quickstart/) guide
 
 ---
 
