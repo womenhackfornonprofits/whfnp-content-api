@@ -8,6 +8,8 @@ API home and documentation: {your URL}
 CMS home: {your URL}/admin
 Current API version root: {your URL}/api/v1
 
+NB: User signup has been disabled for accounts to be created directly in Stormpath.
+
 ## Setup
 
 1. Get Node/NPM from the [official website](https://nodejs.org)

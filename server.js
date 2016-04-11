@@ -61,6 +61,7 @@ app.use(stormpath.init(app, {
  * Routes setup
  */
 require('./routes')(app, stormpath);
+app.use('/admin/profile',stormpath.loginRequired,require('./controllers/admin/profile')());
 
 /**
  * Start the server

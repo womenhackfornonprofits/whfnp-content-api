@@ -10,7 +10,7 @@ html
         if user
           p Welcome, #{user.fullName}
           p
-            a.small(href="profile") Edit my profile
+            a.small(href="/admin/profile") Edit my profile
           form(action='/logout', method='POST')
             button.btn.btn-default(type="submit") Logout
         else

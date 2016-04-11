@@ -8,7 +8,7 @@ var request = supertest(app);
 
 describe('API root', function() {
   it('should return a 200 response', function(done) {
-    request.get('/')
+    request.get('/api')
       .expect(200)
       .expect("Content-type", /json/)
       .end(function(err, res) {
