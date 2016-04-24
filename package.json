@@ -29,8 +29,15 @@
   "dependencies": {
     "async": "^1.5.2",
     "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "csurf": "^1.8.3",
     "express": "^4.13.4",
+    "express-stormpath": "^2.4.0",
+    "forms": "^1.1.4",
+    "jade": "^1.11.0",
     "mongoose": "^4.4.3",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "stormpath": "^0.17.1",
+    "xtend": "^4.0.1"
   }
 }

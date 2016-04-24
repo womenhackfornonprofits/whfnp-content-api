@@ -2,7 +2,13 @@
 
 # WHFNP Content API
 
-Content API for the WHFNP Website &amp; CMS.
+Content API and CMS for Women Hack for Non-Profits.
+
+API home and documentation: {your URL}
+CMS home: {your URL}/admin
+Current API version root: {your URL}/api/v1
+
+NB: User signup has been disabled for accounts to be created directly in Stormpath.
 
 ## Setup
 
@@ -12,6 +18,7 @@ Content API for the WHFNP Website &amp; CMS.
 4. Enter the directory and install the dependencies: `cd whfnp-content-api && npm install`
 5. Run tests: `gulp test`
 6. Run the app: `gulp`
+7. We use the `stormpath-express` package for user management. Follow instructions to set yourself up locally using this [Stormpath Express Quickstart](http://docs.stormpath.com/express/quickstart/) guide
 
 ---
 
